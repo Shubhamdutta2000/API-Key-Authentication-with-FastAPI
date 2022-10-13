@@ -1,0 +1,14 @@
+# Test your FastAPI endpoints
+
+GET http://localhost:8000/
+Accept: application/json
+
+### list all products with pagination and API Key Authentication in header
+
+GET http://localhost:8000/product?page=1&limit=10
+access_token: ThisIsSecret
+
+### list all products with pagination and API Key Authentication in query parameter
+
+GET http://localhost:8000/ndc?page=1&limit=10&access_token=ThisIsSecret
+
