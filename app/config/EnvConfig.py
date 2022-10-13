@@ -10,6 +10,8 @@ class EnvConfig:
     table_name = os.environ.get("table_name")
     api_key = os.environ.get("api_key")
     api_key_name = os.environ.get("api_key_name")
+    default_page = os.environ.get("default_page")
+    default_limit = os.environ.get("default_limit")
 
 def get_env_config():
     return EnvConfig()

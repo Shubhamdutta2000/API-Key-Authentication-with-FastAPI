@@ -14,15 +14,15 @@ router = APIRouter(prefix="/v1/api/product", tags=["Product"])
 
 
 @router.get("/", response_model_exclude_none=True)
-def get_all_data(api_key: APIKey = Depends(get_api_key), limit: Union[str, None] = None, page: Union[str, None] = None):
+def get_data(api_key: APIKey = Depends(get_api_key), limit: Union[str, None] = env_config.default_limit, page: Union[str, None] = env_config.default_page):
     """
        - GET Endpoint to expose data with Pagination
         Args:
            api_key (APIKey): Defaults to Depends(get_api_key).
-           limit (Union[str, None] = None): Query Param for specific limit of data in particular page
-           page (Union[str, None] = None): Query Param for particular no. of page
+           limit (Union[str, None] = None): Query Param for specific limit of data in particular page with default value
+           page (Union[str, None] = None): Query Param for particular no. of page with default value
         Returns:
-           list of all Product in json format
+           list of all drugs in json format
     """
     response = list_all_product(limit, page)
     # df = conv(response)

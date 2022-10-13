@@ -14,12 +14,8 @@ def list_all_product(limit, page):
     """
     cursor = connection.cursor(cursor_factory=RealDictCursor)
     table_name = config.table_name
-    query = ""
-    if page:
-        offset = (int(page) - 1) * 10 + 1
-        query = "select * from " + table_name + " limit " + limit + " offset " + str(offset) + ";"
-    else:
-        query = "select * from " + table_name + ";"
+    offset = (int(page) - 1) * 10 + 1
+    query = "select * from " + table_name + " limit " + str(limit) + " offset " + str(offset) + ";"
     print(query)
     cursor.execute(query)
     res = cursor.fetchall()
